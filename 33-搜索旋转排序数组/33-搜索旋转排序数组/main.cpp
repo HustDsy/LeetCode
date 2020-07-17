@@ -41,6 +41,43 @@ public:
         }
         return -1;
     }
+
+    bool search2(vector<int>& nums, int target) {
+        if(nums.size()==0){
+            return false;
+        }
+        if(nums.size()==1){
+            return nums[0]==target?true:false;
+        }
+        int begin=0;
+        int end=(int)nums.size()-1;
+        while(begin<=end){
+            int mid=begin+(end-begin)/2;
+            if(target==nums[mid]){
+                return true;
+            }
+            //target大于等于nums[0]说明，target在左半段
+            if(target>=nums[0]){
+                //如果mid在右半段的话 那么就把他变成无限大
+                //这里不加0，是因为0算在左半段
+                if(nums[mid]<nums[0]){
+                    nums[mid]=INT_MAX;
+                }
+            }else{
+                //当target<nums[0]的时候，说明目标在右半段，需要把左半段的mid全部变为无限小，这里加个=号
+                //是因为等于nums[0]时候的mid算在左半段
+                if(nums[mid]>=nums[0]){
+                    nums[mid]=INT_MIN;
+                }
+            }
+            if(nums[mid]>target){
+                end=mid-1;
+            }else{
+                begin=mid+1;
+            }
+        }
+        return false;
+    }
 };
 
 int main(int argc, const char * argv[]) {
