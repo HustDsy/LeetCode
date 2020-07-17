@@ -24,7 +24,7 @@ public:
                 return mid;
             }
             //如果左侧有序,[begin.mid-1]
-            if(nums[mid-1]>=nums[begin]){
+            if(nums[mid]>=nums[begin]){
                 if(nums[begin]<=target&&target<nums[mid]){
                     end=mid-1;
                 }else{
