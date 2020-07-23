@@ -16,12 +16,15 @@ public:
         if(k==0){
             return {};
         }
+        if(shorter==longer){
+            return {shorter*k};
+        }
         vector<int>ret;
         for(int i=0;i<=k;i++){
             ret.push_back(shorter*i+(k-i)*longer);
         }
-        sort(ret.begin(),ret.end());
-        ret.erase(unique(ret.begin(),ret.end()), ret.end());
+        //sort(ret.begin(),ret.end());
+        //ret.erase(unique(ret.begin(),ret.end()), ret.end());
         return ret;
     }
 };
