@@ -46,7 +46,10 @@ public:
     }
     //二分查找，很像上次那个寻找第k小的数字了
     int splitArray2(vector<int>& nums, int m) {
-        long l=*max_element(nums.begin(),nums.end());
+        long l=0;
+        for(int temp:nums){
+            l=l>temp?l:temp;
+        }
         long r=0;
         for(int temp:nums){
             r+=temp;
