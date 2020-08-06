@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include<vector>
 using namespace std;
 class Solution {
 public:
@@ -48,11 +49,42 @@ public:
         }
         return maxs;
     }
+    
+    string longestPalindrome1(string s) {
+         int len = s.length();
+        if(len==0){
+            return "";
+        }
+         vector<vector<int>>dp(len,vector<int>(len,0));
+         int maxlen=1;
+         string ret;
+         for(int i=len-1;i>=0;i--){
+             dp[i][i]=1;
+             for(int j=i+1;j<len;j++){
+               if(j-i==1){
+                   dp[i][j]=s[i]==s[j];
+               }else{
+               dp[i][j]=s[i]==s[j]&&dp[i+1][j-1];
+               }
+               if(dp[i][j]==1&&j-i+1>maxlen){
+                   maxlen=j-i+1;
+                   ret=s.substr(i,(j-i+1));
+       
+               }
+             }
+         }
+        if(maxlen==1){
+            string temp;
+            temp+=s[0];
+            return temp;
+        }
+          return ret;
+       }
 };
 
 int main(int argc, const char * argv[]) {
-    string s="abcda";
+    string s="babad";
     Solution ss;
-    cout<<ss.longestPalindrome(s)<<endl;
+    cout<<ss.longestPalindrome1(s)<<endl;
     return 0;
 }
