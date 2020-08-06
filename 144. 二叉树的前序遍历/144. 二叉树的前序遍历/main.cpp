@@ -31,8 +31,30 @@ public:
         preorderTraversal(root->right);
         return ret;
     }
+    //前序遍历
+    vector<int>preorderTraversal_iteration(TreeNode*root){
+        if(root==NULL){
+            return {};
+        }
+        vector<int>myret;
+        stack<TreeNode*>mystack;
+        mystack.push(root);
+        while(!mystack.empty()){
+            TreeNode*temp=mystack.top();
+            mystack.pop();
+            myret.push_back(temp->val);
+            if(temp->right!=NULL){
+                mystack.push(temp->right);
+            }
+            if(temp->left!=NULL){
+                mystack.push(temp->left);
+            }
+
+        }
+        return myret;
+    }
     //迭代,后续遍历
-    vector<int> preorderTraversal_iteration(TreeNode* root) {
+    vector<int> postorderTraversal_iteration(TreeNode* root) {
         vector<int>myRet;
         if(root==NULL){
             return {};
@@ -79,6 +101,7 @@ public:
         }
         return myRet;
     }
+  
 
     
     
