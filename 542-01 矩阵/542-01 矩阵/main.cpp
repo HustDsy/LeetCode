@@ -79,9 +79,6 @@ public:
                     points point(i,j);
                     myPoint.push(point);
                 }
-            
-              
-            
             }
         }
         //逐层渲染，渲染的将值变为+1
