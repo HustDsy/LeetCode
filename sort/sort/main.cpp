@@ -115,6 +115,25 @@ void quick_sort(T arr[], int len) {
 }
 
 
+void quick_sort(int arry[],int start,int end){
+    if(start>=end){
+        return;
+    }
+    int pivot=arry[end];
+    int left=start;
+    int right=end-1;
+    while(left<right){
+        while(arry[left]<pivot&&left<right) left++;
+        while(arry[right]<pivot&&left<right) right--;
+        swap(arry[left],arry[right]);
+    }
+    if (arry[left] >= arry[end])
+         swap(arry[left], arry[end]);
+     else
+         left++;
+    
+    
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
