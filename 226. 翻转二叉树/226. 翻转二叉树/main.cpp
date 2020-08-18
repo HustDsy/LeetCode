@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include<queue>
 using namespace std;
 
 
@@ -21,7 +22,7 @@ using namespace std;
  
 class Solution {
 public:
- 
+    //递归
     TreeNode* invertTree(TreeNode* root) {
         if(root==NULL){
             return NULL;
@@ -31,6 +32,29 @@ public:
         root->right=temp;
         invertTree(root->left);
         invertTree(root->right);
+        return root;
+    }
+    //迭代
+    TreeNode*invertTree_iterator(TreeNode*root){
+        if(root==NULL){
+            return nullptr;
+        }
+        queue<TreeNode*>myqueue;
+        myqueue.push(root);
+        while(!myqueue.empty()){
+            TreeNode*top=myqueue.front();
+            myqueue.pop();
+            TreeNode*left=top->left;
+            TreeNode*right=top->right;
+            top->left=right;
+            top->right=left;
+            if(left!=NULL){
+                myqueue.push(left);
+            }
+            if(right!=nullptr){
+                myqueue.push(right);
+            }
+        }
         return root;
     }
 };
