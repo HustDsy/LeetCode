@@ -16,11 +16,12 @@ public:
     void getString(int num,string kk,int size,string s,vector<int>flag){
         if(num==size){
             ret.push_back(kk);
+            return;
         }
         for(int i=0;i<size;i++){
             //没有被选择的话
             if(flag[i]==0){
-                if(i>0&&s[i]==s[i-1]&&flag[i-1]==1){
+                if(i>0&&s[i]==s[i-1]&&flag[i-1]!=1){
                     continue;
                 }
                 kk+=s[i];
