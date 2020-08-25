@@ -77,15 +77,54 @@ public:
 //        }
         otherDfs(0, 0, nums);
         return ret;
-        
-
+    
     }
 };
 
+class Solution2 {
+public:
+    //这个dfs是跑完全程 再push的 所以可以这样子去重
+    //比如 1 2 1 1
+    //对于第一个1 跑完全程 为  1 2 1 1
+    //而对于第2个1 跑完全程为 1 1
+    //但是得避免 1 2 1 2 1这样子的情况
+    vector<int> temp;
+    vector<vector<int>> ans;
+
+    void dfs(int cur, int last, vector<int>& nums) {
+        if (cur == nums.size()) {
+            if (temp.size() >= 2) {
+                ans.push_back(temp);
+            }
+            return;
+        }
+        if (nums[cur] >= last) {
+            temp.push_back(nums[cur]);
+            dfs(cur + 1, nums[cur], nums);
+            temp.pop_back();
+        }
+        if (nums[cur] != last) {
+            dfs(cur + 1, last, nums);
+        }
+    }
+
+    vector<vector<int>> findSubsequences(vector<int>& nums) {
+        dfs(0, INT_MIN, nums);
+        return ans;
+    }
+};
+
+
+
 int main(int argc, const char * argv[]) {
+    
     Solution s;
     vector<int> nums={
-        1, 2, 3, 1,1};
-    s.findSubsequences(nums);
+        1, 1,2};
+//    s.findSubsequences(nums);
+    Solution2 ss;
+    ss.dfs(0, INT_MIN, nums);
+    
+    
     return 0;
 }
