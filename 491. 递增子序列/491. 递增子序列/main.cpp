@@ -121,6 +121,7 @@ int main(int argc, const char * argv[]) {
     Solution s;
     vector<int> nums={
         1, 1,2};
+        1,2,1,1};
 //    s.findSubsequences(nums);
     Solution2 ss;
     ss.dfs(0, INT_MIN, nums);
