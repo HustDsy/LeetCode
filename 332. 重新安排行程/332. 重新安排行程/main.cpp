@@ -110,7 +110,7 @@ public:
 
 int main(int argc, const char * argv[]) {
     Solution s;
-    vector<vector<string> >tickets={{"JFK","B"},{"JFK","C"},{"C","B"}};
+    vector<vector<string> >tickets={{"JFK","AAA"},{"JFK","BBB"},{"BBB","JFK"}};
     vector<string>test=s.findItinerary_(tickets);
     for(int i=0;i<test.size();i++){
         cout<<test[i]<<endl;
