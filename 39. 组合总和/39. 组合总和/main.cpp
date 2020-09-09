@@ -26,7 +26,7 @@ public:
             temp.push_back(candidates[i]);
             getRet(candidates, currNum-candidates[i], i);
             temp.pop_back();
-            
+
         }
             
       }
