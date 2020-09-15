@@ -26,12 +26,12 @@ int getMax(string s){
     int maxlen=0;//长度
     vector<int>p(len,0);
     for(int i=1;i<len;i++){
-        p[i]=r>i?1:min(p[2*mid-i],r-i);
+        p[i]=r<=i?1:min(p[2*mid-i],r-i);
         while(ss[i+p[i]]==ss[i-p[i]]){
             p[i]++;
         }
-        if(r<i+p[i]){
-            r=i+p[i];
+        if(r<i+p[i]-1){
+            r=i+p[i]-1;
             mid=i;
         }
         if(maxlen<p[i]){
@@ -40,11 +40,9 @@ int getMax(string s){
         
     }
     return maxlen-1;
-    
 }
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    getMax("babad");
     return 0;
 }
