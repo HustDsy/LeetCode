@@ -79,6 +79,17 @@ public:
         }
         return root;
     }
+    //递归
+    TreeNode* insertIntoBST(TreeNode* root, int val) {
+          if(root==NULL) return new TreeNode(val);
+          if(root->val<=val){
+              root->right=insertIntoBST(root->right,val);
+          }
+           if(root->val>val){
+              root->left=insertIntoBST(root->left,val);
+          }
+          return root;
+      }
 };
 int main(int argc, const char * argv[]) {
     // insert code here...
