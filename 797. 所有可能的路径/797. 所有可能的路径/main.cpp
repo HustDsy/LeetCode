@@ -14,6 +14,7 @@ public:
     vector<int>trace;
     vector<vector<int>>ret;
     void dfs(vector<vector<int>>& graph,int start,int len){
+
         if(start==len-1){
             trace.push_back(start);
             ret.emplace_back(trace);
