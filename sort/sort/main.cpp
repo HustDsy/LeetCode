@@ -72,7 +72,7 @@ void merge(int arry[],int len){
 }
 
 void mergesort(int*arry,int*temp,int left,int right){
-    if(left>right){
+    if(left>=right){
         return;
     }
     int mid=(left+right)/2;
