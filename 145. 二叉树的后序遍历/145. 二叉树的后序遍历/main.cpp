@@ -33,34 +33,31 @@ public:
     }
     //后续遍历
     vector<int> postorderTraversal_iteration(TreeNode* root) {
-          vector<int>myRet;
-          if(root==NULL){
-              return {};
-          }
-          stack<TreeNode*>nodes;
-          nodes.push(root);
-          TreeNode*pre=NULL;
-          while(!nodes.empty()){
-              TreeNode*cur=nodes.top();
-              if((cur->left==NULL&&cur->right==NULL)||(pre!=NULL&&(pre==cur->left||pre==cur->right))){
-                  myRet.push_back(cur->val);
-                  pre=cur;
-                  nodes.pop();
-              }else{
-                  if(cur->right!=NULL){
-                      nodes.push(cur->right);
-                  }
-                  if(cur->left!=NULL){
-                      nodes.push(cur->left);
-                  }
-                  
-              }
-          }
-          return myRet;
-      }
-
-    
-    
+        vector<int>myRet;
+        if(root==NULL){
+            return {};
+        }
+        stack<TreeNode*>nodes;
+        nodes.push(root);
+        TreeNode*pre=NULL;
+        while(!nodes.empty()){
+            TreeNode*cur=nodes.top();
+            if((cur->left==NULL&&cur->right==NULL)||(pre!=NULL&&(pre==cur->left||pre==cur->right))){
+                myRet.push_back(cur->val);
+                pre=cur;
+                nodes.pop();
+            }else{
+                if(cur->right!=NULL){
+                    nodes.push(cur->right);
+                }
+                if(cur->left!=NULL){
+                    nodes.push(cur->left);
+                }
+                
+            }
+        }
+        return myRet;
+    }
 };
 
 
