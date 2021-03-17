@@ -34,6 +34,24 @@ public:
         dfs(root);
         return res;
     }
+//    int kthLargest(TreeNode* root, int k) {
+//            stack<TreeNode*>s;
+//            TreeNode*top=root;
+//            while(top||!s.empty()){
+//                while(top){
+//                s.push(top);
+//                top=top->right;
+//                }
+//                top=s.top();
+//            s.pop();
+//            if(--k==0){
+//                return top->val;
+//            }
+//            top=top->left;
+//            }
+//
+//            return -1;
+//        }
 };
 
 
