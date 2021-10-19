@@ -60,3 +60,4 @@ DerivedData
 .idea/
 *.xcuserstate
 project.pbxproj
+*.xcodeproj
