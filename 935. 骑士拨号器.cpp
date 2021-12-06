@@ -41,5 +41,6 @@ class Solution {
 int main() {
     Solution s;
     int res = s.knightDialer(4);
+    cout << 4 << endl;
     return 0;
 }
